@@ -3,10 +3,10 @@
       Input: quantity selected (integer)
       Output: product line totals (double)
 */
-function calculateProdTotal (price, quantity) {
-    return 0;   // replace this!
-}
 
+function calculateProdTotal (price,quantity) {
+    return price * quantity;
+}
 /* 2. Complete the function below to calculate gross cart totals
       use the array of product line total argument
       Input: prodTotals is an array of product line totals (array of double)
@@ -16,7 +16,7 @@ function calculateProdTotal (price, quantity) {
             always have 3 elements (i.e., bananas, oranges, apples)
 */
 function calculateSubtotal (prodTotals) {
-    return 0;   // replace this!
+    return subtotalApples + subtotalBananas + subtotalOranges;   // replace this!
 }
 
 /* 3. Complete the function below to calculate added taxes
@@ -25,7 +25,7 @@ function calculateSubtotal (prodTotals) {
       Output: added taxes for the cart (double)
 */
 function calculateTaxes(grossTotal, taxRate) {
-    return 0;   // replace this!
+    return grossTotal * taxRate;   // replace this!
 }
 
 /* 4. Complete the function below to calculate total
@@ -35,7 +35,7 @@ function calculateTaxes(grossTotal, taxRate) {
       Output: total cart amount inclusive of shipping and taxes (double)
 */
 function calculateTotal (grossTotal, addedShipping, addedTax) {
-    return 0;   // replace this!
+    return grossTotal + addedShipping + addedTax;   // replace this!
 }
 
 /* 5. We want to inform the users when certain items run out of stock
@@ -62,5 +62,14 @@ function calculateTotal (grossTotal, addedShipping, addedTax) {
 
 */
 function updateProdAvailability(product, selected, availability) {
-    return; // replace this!
+    var requested = selected/availability;
+    console.log(requested);
+    if (requested > 1) {
+        updateProdAvailabilityLabel(product, "Out", OUT_OF_STOCK);
+    } else if (requested < 0.65) {
+        updateProdAvailabilityLabel(product, "Available", AVAILABLE);
+    } else  {
+        updateProdAvailabilityLabel(product, "Limited", LIMITED_SUPPLY);
+    }
+ // replace this!
 }
